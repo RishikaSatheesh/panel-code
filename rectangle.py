@@ -2,23 +2,6 @@ import param
 import panel as pn
 import pandas as pd
 from common import Common
-import logging 
-from datetime import datetime
-log_dir = '/localpart0/aop-shared/WAVES_PDEV/logs/spt/retention'
-log = '{0}/error_poc_{1}.log'.format(
-                            log_dir,
-                            datetime.now().strftime(str('%Y_%m'))
-                        )
-username = pn.state.session_args.get(
-                                    'username', [b"username"]
-                                )[0].decode().upper()
-logging.basicConfig(
-                filename=log,
-                filemode='a',
-                format=f'%(asctime)s - %(levelname)s - {username} - %(message)s',
-                level=logging.INFO,
-                force=True
-            )
 
 class Button(param.Parameterized):
     # tab specific submit button
